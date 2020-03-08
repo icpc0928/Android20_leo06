@@ -16,7 +16,6 @@ import java.util.LinkedList;
 
 public class MyView extends View {
     private Paint paint ;
-
     private LinkedList<LinkedList<HashMap<String,Float>>>  lines;
 
     public MyView(Context context, @Nullable AttributeSet attrs) {
@@ -80,5 +79,11 @@ public class MyView extends View {
 
         invalidate();    //讓ondraw方法再度被呼叫（相當於java的 repaint()方法）
         return true; //return super.onTouchEvent(event); return true ; return false; 有三種招,第一種還會叫到onclick跟onlongclick
+    }
+
+    //重新弄個方法讓lines清除乾淨
+    public void clear(){
+        lines.clear();
+        invalidate();
     }
 }
